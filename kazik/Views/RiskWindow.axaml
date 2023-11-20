@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="kazik.Views.RiskWindow"
+        SystemDecorations="None"
+        Height="450"
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        Title="RiskWindow">
+        <Grid RowDefinitions="*, Auto">
+		<Grid Grid.Row="0" Background="Azure" ColumnDefinitions="Auto, *">
+			<Grid Grid.Column="0" Background="Bisque" Width="200">
+				<Border x:Name="maincardborder" Background="Gray" Height="220" Width="120" CornerRadius="15">
+					<TextBlock x:Name="maincard" VerticalAlignment="Center" FontSize="80"  HorizontalAlignment="Center" Foreground="White">5</TextBlock>
+				</Border>
+			</Grid>
+			<Grid Grid.Column="1" ColumnDefinitions="*, *, *, *">
+				<Border x:Name="cardborder0" Grid.Column="0" Background="Gray" Height="190" Width="100" CornerRadius="15">
+					<TextBlock x:Name="card0" VerticalAlignment="Center" FontSize="70"  HorizontalAlignment="Center" Foreground="White">5</TextBlock>
+				</Border>
+				<Border x:Name="cardborder1" Grid.Column="1" Background="Gray" Height="190" Width="100" CornerRadius="15">
+					<TextBlock x:Name="card1" VerticalAlignment="Center" FontSize="70"  HorizontalAlignment="Center" Foreground="White">5</TextBlock>
+				</Border>
+				<Border x:Name="cardborder2" Grid.Column="2" Background="Gray" Height="190" Width="100" CornerRadius="15">
+					<TextBlock x:Name="card2" VerticalAlignment="Center" FontSize="70"  HorizontalAlignment="Center" Foreground="White">5</TextBlock>
+				</Border>
+				<Border x:Name="cardborder3" Grid.Column="3" Background="Gray" Height="190" Width="100" CornerRadius="15">
+					<TextBlock x:Name="card3" VerticalAlignment="Center" FontSize="70"  HorizontalAlignment="Center" Foreground="White">5</TextBlock>
+				</Border>
+			</Grid>
+		</Grid>
+		<Grid Grid.Row="1" Background="Gray" Height="140" RowDefinitions="Auto, *">
+			<Grid Grid.Row="0" Height="60" Background="Aquamarine" ColumnDefinitions="*, *">
+				<TextBlock Grid.Column="0" VerticalAlignment="Center" FontSize="30" Margin="0, 0, 15, 0"  HorizontalAlignment="Right">coins:</TextBlock>
+				<TextBlock x:Name="coinsText" Grid.Column="1" VerticalAlignment="Center" FontSize="30" Margin="15, 0, 0, 0"  HorizontalAlignment="Left">50000</TextBlock>
+			</Grid>
+			<Grid Grid.Row="1" Background="GhostWhite">
+				<Button CornerRadius="35" x:Name="collectButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0, 0, 0, 15" Height="50" Width="170">
+					<TextBlock VerticalAlignment="Center" FontSize="30" HorizontalAlignment="Center" FontWeight="Bold">Забрать</TextBlock>
+				</Button>
+			</Grid>
+		</Grid>
+	</Grid>
+</Window>

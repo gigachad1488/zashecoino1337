@@ -1,0 +1,72 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:kazik.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="kazik.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="kazik">
+    <Window.Background>
+        <ImageBrush Stretch="UniformToFill" Source="/Assets/jungl.jpg"></ImageBrush>
+    </Window.Background>
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid RowDefinitions="Auto, *">
+        <Grid Grid.Row="0" Height="40" Background="Transparent">
+            <StackPanel Background="ForestGreen" Orientation="Horizontal">
+                <TextBlock FontSize="20" Foreground="Azure" VerticalAlignment="Center">защекоины:</TextBlock>
+                <TextBlock x:Name="zashecoinsText" Foreground="Azure" FontSize="25" FontWeight="ExtraBold" Margin="10, 0, 0, 0" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" RowDefinitions="*, Auto">
+            <Grid Grid.Row="0" Background="Transparent">
+                <Grid Background="Transparent" Width="700" ColumnDefinitions="*, *, *, *, *">
+                    <TextBlock x:Name="slot0" Foreground="White" Grid.Column="0" FontSize="100" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Center">1</TextBlock>
+                    <TextBlock x:Name="slot1" Foreground="White" Grid.Column="1" FontSize="100" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Center">1</TextBlock>
+                    <TextBlock x:Name="slot2" Foreground="White" Grid.Column="2" FontSize="100" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Center">1</TextBlock>
+                    <TextBlock x:Name="slot3" Foreground="White" Grid.Column="3" FontSize="100" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Center">1</TextBlock>
+                    <TextBlock x:Name="slot4" Foreground="White" Grid.Column="4" FontSize="100" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Center">1</TextBlock>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" Background="ForestGreen" Height="155" RowDefinitions="Auto, *">
+                <Grid Grid.Row="0" Height="35">
+                    <Button x:Name="riskButton" Background="Red" HorizontalAlignment="Center" Height="35" Width="200">
+                        <Button.Styles>
+                            <Style Selector="TextBlock:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Background" Value="Yellow"></Setter>
+                            </Style>
+                        </Button.Styles>
+                        <TextBlock FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraBlack">
+                            РИСК
+                        </TextBlock>
+                    </Button>
+                </Grid>
+                
+                <Grid Grid.Row="1" ColumnDefinitions="*, *, *">
+                    <Grid Grid.Column="0" RowDefinitions="*, *" Background="Transparent">
+                        <TextBlock Foreground="Azure" Grid.Row="0" HorizontalAlignment="Center" FontSize="25">выигрыш:</TextBlock>
+                        <TextBlock Foreground="Azure" HorizontalAlignment="Center" FontSize="35" FontWeight="Heavy" x:Name="winCoinsText" Grid.Row="1" Margin="0, 5, 0, 0"></TextBlock>
+                    </Grid>
+                    <Grid Grid.Column="1" Width="550">
+                        <Button Grid.Column="0" x:Name="rollButton" CornerRadius="35" Background="Yellow" HorizontalAlignment="Center" Height="60" Width="250">
+                            <TextBlock Foreground="Black" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Light" Text="&gt;&gt;&gt;ROLL&lt;&lt;&lt;"></TextBlock>
+                        </Button>
+                        
+                    </Grid>
+                    <Grid Grid.Column="2" Background="Transparent" RowDefinitions="*, *">
+                        <TextBlock Foreground="Azure" Grid.Row="0" HorizontalAlignment="Center">ставка</TextBlock>
+                        <TextBox Foreground="Black" x:Name="betBox" Grid.Row="1" Background="GreenYellow" Height="20" Margin="10, 0, 10, 0"></TextBox>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Window>
