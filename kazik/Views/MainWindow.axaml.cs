@@ -53,8 +53,10 @@ public partial class MainWindow : Window
                 StaticData.wincoins = 0;
                 winCoinsText.Text = StaticData.wincoins.ToString();
                 zashecoinsText.Text = StaticData.zashecoins.ToString();
+                this.Show();
             };
-            rk.ShowDialog(this);
+            rk.Show();
+            this.Hide();
         };
 
         slots[0] = slot0;
@@ -81,9 +83,7 @@ public partial class MainWindow : Window
         if (b <= 0 || b > StaticData.zashecoins)
         {
             return;
-        }
-        
-        Debug.WriteLine(b);
+        }      
 
         StaticData.zashecoins -= b;
         
@@ -113,7 +113,7 @@ public partial class MainWindow : Window
                 for (int i = 0; i < rols.Length; i++)
                 {
                     int l = 2;
-                    while (l < 80)
+                    while (l < 40)
                     {
                         int r = rand.Next(1, 6);
                         Dispatcher.UIThread.Post(() => { slots[i].Text = r.ToString(); });
@@ -218,21 +218,21 @@ public partial class MainWindow : Window
 
             if (rols[i + 1] == n)
             {
-                float cef = 0.4f;
+                float cef = 0.1f;
                 HashSet<int> rp = new HashSet<int>();
                 for (int j = i + 1; j < rols.Length; j++)
                 {
                     rp.Add(i);
                     if (rols[j] == n)
                     {
-                        cef *= 2.1f;
+                        cef *= 4.5f;
                         rp.Add(j);
                     }
                     else
                     {
-                        i = j - 1;
                         break;
                     }
+                    i = j - 1;
                 }
 
                 coef += cef;
